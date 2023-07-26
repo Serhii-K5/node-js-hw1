@@ -3,7 +3,7 @@ const { program } = require("commander");
 const {
   listContacts,
   getContactById,
-  // removeContact,
+  removeContact,
   // addContact,
 } = require("./contacts");
 
@@ -35,7 +35,8 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       break;
 
     case "remove":
-      // ... id
+      const remContact = await removeContact(id);
+      console.table(remContact);
       break;
 
     default:
