@@ -1,11 +1,17 @@
 const fs = require("fs").promises;
 const path = require("path");
+require("colors");
 
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 // TODO: задокументувати кожну функцію
-function listContacts() {
-  // ...твій код. Повертає масив контактів.
+const listContacts = async () => {
+  try {
+    const contacts = await fs.readFile(contactsPath, { encoding: "utf-8" });
+    return JSON.parse(contacts);
+  } catch (error) {
+    console.log(`Error: ${error.message}`.red);
+  }
 }
 
 function getContactById(contactId) {
@@ -19,3 +25,12 @@ function removeContact(contactId) {
 function addContact(name, email, phone) {
   // ...твій код. Повертає об'єкт доданого контакту. 
 }
+
+listContacts();
+
+module.exports = {
+  listContacts,
+  // getContactById,
+  // removeContact,
+  // addContact,
+};

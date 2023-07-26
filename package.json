@@ -7,7 +7,6 @@
     "test": "react-scripts test",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
-    
   },
   "repository": {
     "type": "git",
@@ -24,5 +23,9 @@
   "homepage": "https://github.com/Serhii-K5/node.js-hw1#readme",
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^11.0.0"
   }
 }
