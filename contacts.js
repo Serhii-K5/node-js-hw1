@@ -14,9 +14,14 @@ const listContacts = async () => {
   }
 }
 
-function getContactById(contactId) {
-  // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
-}
+const getContactById = async (contactId) => {
+  try {
+    const contacts = await listContacts();
+    return contacts.filter(({ id }) => id === contactId);
+  } catch (error) {
+    console.log(`Error: ${error.message}`.red);
+  }
+};
 
 function removeContact(contactId) {
   // ...твій код. Повертає об'єкт видаленого контакту. Повертає null, якщо контакт з таким id не знайдений.
@@ -30,7 +35,7 @@ listContacts();
 
 module.exports = {
   listContacts,
-  // getContactById,
+  getContactById,
   // removeContact,
   // addContact,
 };
