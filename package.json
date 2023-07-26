@@ -4,7 +4,10 @@
   "description": "CLI app",
   "main": "index.js",
   "scripts": {
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+    
   },
   "repository": {
     "type": "git",
